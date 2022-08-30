@@ -1,0 +1,13 @@
+.idea
+
+target/
+logs/
+docs/
+
+.vscode/
+Pipfile
+Pipfile.lock
+env.sh
+docs/
+
+.python_version
