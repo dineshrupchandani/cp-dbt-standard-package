@@ -50,13 +50,13 @@ models:
       #example:
        # +materialized: view
 
-  dbt_artifacts:
-    +database: "{{ env_var('ARTIFACTS_DB')}}"
-    +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}"
-    staging:
-      +database: "{{ env_var('ARTIFACTS_DB')}}"
-      +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}"
-      
+  #dbt_artifacts:
+  #  +database: "{{ env_var('ARTIFACTS_DB')}}"
+  #  +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}"
+  #  staging:
+  #    +database: "{{ env_var('ARTIFACTS_DB')}}"
+  #    +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}"
+
 #hook
 on-run-end:
   - "{{ dbt_artifacts.upload_results(results) }}"
