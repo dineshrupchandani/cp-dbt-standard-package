@@ -50,7 +50,7 @@ models:
 
 #hook
 on-run-end:
-  - "{{ dbt_artifacts.upload_results(results) }}"
+  - "{{ cp_dbt_standard_package.dbt_artifacts.upload_results(results) }}"
   - 'grant usage on schema SBX_DBT_TESTING_RAW.DBT_METRICS_2 to role DBT_TESTING_DEVELOPER'
   - 'grant select on all views in schema SBX_DBT_TESTING_RAW.DBT_METRICS_2 to role DBT_TESTING_DEVELOPER'
   - 'grant select on all tables in schema SBX_DBT_TESTING_RAW.DBT_METRICS_2 to role DBT_TESTING_DEVELOPER'
