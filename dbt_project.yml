@@ -26,8 +26,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 
 vars:
-  dbt_artifacts_database: "{{ env_var('ARTIFACTS_DB')}}"
-  dbt_artifacts_schema: "{{ env_var('ARTIFACTS_SCHEMA')}}" # optional, default is your target schema
+  dbt_artifacts_database: "SBX_DBT_TESTING_RAW"
+  dbt_artifacts_schema: "DBT_METRICS_2" # optional, default is your target schema
 
   # Mandatory if specified
   env_vars: ['GITHUB_RUN_ID']
@@ -42,15 +42,15 @@ models:
   +transient: false
 
   dbt_artifacts:
-    +database: "{{ env_var('ARTIFACTS_DB')}}"
-    +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}"
+    +database: "SBX_DBT_TESTING_RAW"
+    +schema: "DBT_METRICS_2"
     staging:
-      +database: "{{ env_var('ARTIFACTS_DB')}}"
-      +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}"
+      +database: "SBX_DBT_TESTING_RAW"
+      +schema: "DBT_METRICS_2"
 
 #hook
-#on-run-end:
-#  - "{{ dbt_artifacts.upload_results(results) }}"
-#  - 'grant usage on schema SBX_DBT_TESTING_RAW.DBT_METRICS_2 to role DBT_TESTING_DEVELOPER'
-#  - 'grant select on all views in schema SBX_DBT_TESTING_RAW.DBT_METRICS_2 to role DBT_TESTING_DEVELOPER'
-#  - 'grant select on all tables in schema SBX_DBT_TESTING_RAW.DBT_METRICS_2 to role DBT_TESTING_DEVELOPER'
+on-run-end:
+  - "{{ dbt_artifacts.upload_results(results) }}"
+  - 'grant usage on schema SBX_DBT_TESTING_RAW.DBT_METRICS_2 to role DBT_TESTING_DEVELOPER'
+  - 'grant select on all views in schema SBX_DBT_TESTING_RAW.DBT_METRICS_2 to role DBT_TESTING_DEVELOPER'
+  - 'grant select on all tables in schema SBX_DBT_TESTING_RAW.DBT_METRICS_2 to role DBT_TESTING_DEVELOPER'
