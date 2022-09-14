@@ -26,9 +26,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 
 vars:
-  dbt_artifacts:
-     dbt_artifacts_database: "{{ env_var('ARTIFACTS_DB')}}"
-     dbt_artifacts_schema: "{{ env_var('ARTIFACTS_SCHEMA')}}" # optional, default is your target schema
+  dbt_artifacts_database: "{{ env_var('ARTIFACTS_DB')}}"
+  dbt_artifacts_schema: "{{ env_var('ARTIFACTS_SCHEMA')}}" # optional, default is your target schema
 
   # Mandatory if specified
   env_vars: ['GITHUB_RUN_ID']
@@ -42,20 +41,12 @@ vars:
 models:
   +transient: false
 
-  dbtproject:
-    example:
-      +schema: "dbt_default"
-
-      # Config indicated by + and applies to all files under models/example/
-      #example:
-       # +materialized: view
-
-  #dbt_artifacts:
-  #  +database: "{{ env_var('ARTIFACTS_DB')}}"
-  #  +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}"
-  #  staging:
-  #    +database: "{{ env_var('ARTIFACTS_DB')}}"
-  #    +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}"
+  dbt_artifacts:
+    +database: "{{ env_var('ARTIFACTS_DB')}}"
+    +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}"
+    staging:
+      +database: "{{ env_var('ARTIFACTS_DB')}}"
+      +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}"
 
 #hook
 on-run-end:
