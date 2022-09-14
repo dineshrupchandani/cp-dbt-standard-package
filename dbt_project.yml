@@ -56,17 +56,7 @@ models:
     staging:
       +database: "{{ env_var('ARTIFACTS_DB')}}"
       +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}"
-
-seeds:
-  +schema: "dbt_default"
-  dbtproject:
-   country_codes:
-    +column_types:
-      country_code: varchar(2)
-      country_name: varchar(32)
-   CDO_TA_IDT_CUSTOMER:
-   CDO_TA_IDT_PRODUCT:
-
+      
 #hook
 on-run-end:
   - "{{ dbt_artifacts.upload_results(results) }}"
