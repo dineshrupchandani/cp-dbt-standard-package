@@ -41,12 +41,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   +transient: false
 
-  dbt_artifacts:
-    +database: "{{ env_var('ARTIFACTS_DB')}}" # optional, default is your target database
-    +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}" # optional, default is your target schema
-    staging:
-      +database: "{{ env_var('ARTIFACTS_DB')}}" # optional, default is your target database
-      +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}" # optional, default is your target schema
+  #dbt_artifacts:
+  #  +database: "{{ env_var('ARTIFACTS_DB')}}" # optional, default is your target database
+  #  +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}" # optional, default is your target schema
+  #  staging:
+  #    +database: "{{ env_var('ARTIFACTS_DB')}}" # optional, default is your target database
+  #    +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}" # optional, default is your target schema
 
 #hook
 on-run-end:
