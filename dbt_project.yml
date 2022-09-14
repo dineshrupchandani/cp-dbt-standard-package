@@ -25,12 +25,12 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_modules"
 
 
-vars:
-  dbt_artifacts_database: "SBX_DBT_TESTING_RAW"
-  dbt_artifacts_schema: "DBT_METRICS_2" # optional, default is your target schema
+#vars:
+#  dbt_artifacts_database: "SBX_DBT_TESTING_RAW"
+#  dbt_artifacts_schema: "DBT_METRICS_2" # optional, default is your target schema
 
   # Mandatory if specified
-  env_vars: ['GITHUB_RUN_ID']
+#  env_vars: ['GITHUB_RUN_ID']
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
