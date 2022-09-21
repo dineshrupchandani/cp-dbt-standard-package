@@ -20,6 +20,5 @@ select
     concat('[', REGEXP_REPLACE(modified_models, '\n', ','), ']') modified_models,
     concat('[', REGEXP_REPLACE(dependent_modified_models, '\n', ','), ']') dependent_modified_models,
     concat('[', REGEXP_REPLACE(deleted_models, '\n', ','), ']') deleted_models,
-    EVENT_NAME,
     JOB_STATUS
 from "DEV_DBT_TESTING_RAW"."UTIL_COMMON"."PR_METRICS_RAW"
