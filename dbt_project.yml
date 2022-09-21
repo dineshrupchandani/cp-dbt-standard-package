@@ -29,8 +29,8 @@ models:
   +transient: false
 
   cp_dbt_standard_package:
-    +schema: "UTIL_COMMON"
-    +database: "DEV_DBT_TESTING_RAW"
+    +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}"
+    +database: "{{ env_var('ARTIFACTS_DATABASE')}}"
 
 #hook
 on-run-end:
