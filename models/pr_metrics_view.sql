@@ -2,7 +2,7 @@
 
 {%- set source_relation = adapter.get_relation(
       database="{{ env_var('ARTIFACTS_DATABASE')}}",
-      schema="{{ env_var('ARTIFACTS_DATABASE')}}",
+      schema="{{ env_var('ARTIFACTS_SCHEMA')}}",
       identifier="pr_metrics_raw") -%}
 
 {% set table_exists=source_relation is not none   %}
