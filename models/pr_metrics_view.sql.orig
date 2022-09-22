@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+{{ config(materialized='view', tags="[pr_metrics]")}}
+=======
 {{ config(materialized='view', tags=["pr_metrics"])}}
+>>>>>>> 812006da9d7c6a2e0e16534efe34813f6df69b07
 
 select
     REPLACE(github_context:job, '"', '') as job_name,
