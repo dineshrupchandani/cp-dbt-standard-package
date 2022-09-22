@@ -1,8 +1,0 @@
-version: 2
-
-sources:
-- name: pr_metrics
-  database: "{{ env_var('ARTIFACTS_DATABASE')}}"
-  schema: "{{ env_var('ARTIFACTS_SCHEMA')}"
-  tables:
-    - name: pr_metrics_raw
