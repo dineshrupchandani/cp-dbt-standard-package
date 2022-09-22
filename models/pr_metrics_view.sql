@@ -1,8 +1,9 @@
 {{ config(materialized='view', tags='pr_metrics') }}
 
 {%- set source_relation = adapter.get_relation(
-      database=source('pr_metrics', 'pr_metrics_raw').database,
-      schema=source('pr_metrics', 'pr_metrics_raw').schema) -%}
+      database="{{ env_var('ARTIFACTS_DATABASE')}"},
+      schema="{{ env_var('ARTIFACTS_DATABASE')}}",
+      identifier="pr_metrics_raw") -%}
 
 {% set table_exists=source_relation is not none   %}
 
