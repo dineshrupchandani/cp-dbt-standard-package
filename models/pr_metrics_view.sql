@@ -6,9 +6,8 @@
       identifier='pr_metrics_raw') -%}
 
 {{ log("Source Relation: " ~ source_relation, info=true) }}
-
 {% set table_exists=source_relation is not none   %}
-
+{{ log("table_exists: " ~ table_exists, info=true) }}
 {% if not table_exists %}
 
 select
