@@ -9,7 +9,7 @@
 
 {% set table_exists=source_relation is not none   %}
 
-{% if table_exists %}
+{% if not table_exists %}
 
 select
     REPLACE(github_context:job, '"', '') as job_name,
