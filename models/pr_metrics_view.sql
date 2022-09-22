@@ -1,15 +1,5 @@
 {{ config(materialized='view')}}
 
-{%- set source_relation = adapter.get_relation(
-      database='DEV_DBT_TESTING_RAW',
-      schema='UTIL_COMMON',
-      identifier='pr_metrics_raw') -%}
-
-{{ log("Source Relation: " ~ source_relation, info=true) }}
-{% set table_exists=source_relation is  none   %}
-{{ log("table_exists: " ~ table_exists, info=true) }}
-{% if table_exists %}
-
 select
     REPLACE(github_context:job, '"', '') as job_name,
     REPLACE(github_context:actor, '"', '') as triggered_by,
@@ -34,14 +24,3 @@ select
     JOB_STATUS
 from "{{ env_var('ARTIFACTS_DATABASE')}}"."{{ env_var('ARTIFACTS_SCHEMA')}}"."PR_METRICS_RAW"
 
-{% else %}
-
-select
-    null::integer as reward_id,
-    null::integer as customer_id,
-    null::integer as tier
-
--- this means there will be zero rows
-where false
-
-{% endif %}
