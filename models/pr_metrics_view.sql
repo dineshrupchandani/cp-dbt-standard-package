@@ -1,8 +1,8 @@
 {{ config(materialized='view', tags='pr_metrics') }}
 
-{% set source_relation = adapter.get_relation(
+{%- set source_relation = adapter.get_relation(
       database=source('pr_metrics', 'pr_metrics_raw').database,
-      schema=source('pr_metrics', 'pr_metrics_raw').schema %}
+      schema=source('pr_metrics', 'pr_metrics_raw').schema) -%}
 
 {% set table_exists=source_relation is not none   %}
 
