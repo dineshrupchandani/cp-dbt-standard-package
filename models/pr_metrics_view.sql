@@ -1,4 +1,4 @@
-{{ config(materialized='view'}}
+{{ config(materialized='view')}}
 
 {%- set source_relation = adapter.get_relation(
       database='DEV_DBT_TESTING_RAW',
