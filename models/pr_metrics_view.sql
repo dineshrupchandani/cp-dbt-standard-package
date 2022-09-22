@@ -34,4 +34,14 @@ select
     JOB_STATUS
 from "{{ env_var('ARTIFACTS_DATABASE')}}"."{{ env_var('ARTIFACTS_SCHEMA')}}"."PR_METRICS_RAW"
 
+{% else %}
+
+select
+    null::integer as reward_id,
+    null::integer as customer_id,
+    null::integer as tier
+
+-- this means there will be zero rows
+where false
+
 {% endif %}
