@@ -1,6 +1,6 @@
 {%- set source_relation = adapter.get_relation(
-      database={{env_var('ARTIFACTS_DATABASE')}},
-      schema={{env_var('ARTIFACTS_SCHEMA')}},
+      database='DEV_DBT_TESTING_RAW',
+      schema='UTIL_COMMON',
       identifier='pr_metrics_raw') -%}
 
 {{ log("Source Relation: " ~ source_relation, info=true) }}
