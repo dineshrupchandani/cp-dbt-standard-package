@@ -1,4 +1,13 @@
-{{ config(materialized='view') }}
+{{ config(materialized='view', tags='pr_metrics') }}
+
+{%- set source_relation = adapter.get_relation(
+      database=source('pr_metrics', 'pr_metrics_raw').database,
+      schema=source('pr_metrics', 'pr_metrics_raw').schema -%}
+
+{% set table_exists=source_relation is not none   %}
+
+{% if table_exists %}
+
 select
     REPLACE(github_context:job, '"', '') as job_name,
     REPLACE(github_context:actor, '"', '') as triggered_by,
@@ -22,3 +31,5 @@ select
     concat('[', REGEXP_REPLACE(deleted_models, '\n', ','), ']') deleted_models,
     JOB_STATUS
 from "{{ env_var('ARTIFACTS_DATABASE')}}"."{{ env_var('ARTIFACTS_SCHEMA')}}"."PR_METRICS_RAW"
+
+{% endif %}
