@@ -1,3 +1,5 @@
+{{ config(materialized='view'}}
+
 {%- set source_relation = adapter.get_relation(
       database='DEV_DBT_TESTING_RAW',
       schema='UTIL_COMMON',
@@ -6,8 +8,6 @@
 {{ log("Source Relation: " ~ source_relation, info=true) }}
 
 {% set table_exists=source_relation is not none   %}
-
-{{ config(materialized='view'}}
 
 {% if table_exists %}
 
