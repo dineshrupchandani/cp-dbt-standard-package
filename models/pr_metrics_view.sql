@@ -6,9 +6,9 @@
       identifier='pr_metrics_raw') -%}
 
 {{ log("Source Relation: " ~ source_relation, info=true) }}
-{% set table_exists=source_relation is not none   %}
+{% set table_exists=source_relation is  none   %}
 {{ log("table_exists: " ~ table_exists, info=true) }}
-{% if not table_exists %}
+{% if table_exists %}
 
 select
     REPLACE(github_context:job, '"', '') as job_name,
