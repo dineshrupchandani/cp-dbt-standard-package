@@ -1,7 +1,7 @@
 {{ config(materialized='view', tags='pr_metrics') }}
 
 {%- set source_relation = adapter.get_relation(
-      database="{{ env_var('ARTIFACTS_DATABASE')}"},
+      database="{{ env_var('ARTIFACTS_DATABASE')}}",
       schema="{{ env_var('ARTIFACTS_DATABASE')}}",
       identifier="pr_metrics_raw") -%}
 
