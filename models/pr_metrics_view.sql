@@ -23,5 +23,5 @@ select
     concat('[', REGEXP_REPLACE(dependent_modified_models, '\n', ','), ']') dependent_modified_models,
     concat('[', REGEXP_REPLACE(deleted_models, '\n', ','), ']') deleted_models,
     JOB_STATUS
-from "{{ env_var('ARTIFACTS_DATABASE')}}"."{{ env_var('ARTIFACTS_SCHEMA')}}"."PR_METRICS_RAW"
+from "{{ env_var('ARTIFACTS_DATABASE')}}"."{{ env_var('ARTIFACTS_SCHEMA')}}"."PR_METRICS_RAW_1"
 
