@@ -27,6 +27,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   +transient: false
+  cp_dbt_standard_package:
+    example:
+      +schema: "UTIL_COMMON"
 
 
 
