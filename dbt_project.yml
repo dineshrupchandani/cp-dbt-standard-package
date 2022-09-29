@@ -31,8 +31,8 @@ models:
 
 
   cp_dbt_standard_package:
-     +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}"
-     +database: "{{ env_var('ARTIFACTS_DATABASE')}}"
+     +schema: "{{ env_var('ARTIFACTS_SCHEMA', 'not-set')}}"
+     +database: "{{ env_var('ARTIFACTS_DATABASE', 'not-set')}}"
 
 #hook
 on-run-end:
