@@ -27,15 +27,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   +transient: false
-  # cp_dbt_standard_package:
-  #   example:
-  #     +schema: "UTIL_COMMON"
 
 
 
-  # cp_dbt_standard_package:
-  #   +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}"
-  #   +database: "{{ env_var('ARTIFACTS_DATABASE')}}"
+  cp_dbt_standard_package:
+     +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}"
+     +database: "{{ env_var('ARTIFACTS_DATABASE')}}"
 
 #hook
 on-run-end:
