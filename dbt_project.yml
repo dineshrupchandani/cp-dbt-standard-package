@@ -28,12 +28,22 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   +transient: false
 
+  dbt_artifacts:
+    +database: "{{ env_var('ARTIFACTS_DATABASE', 'not-set')}}" # optional, default is your target database
+    +schema: "{{ env_var('ARTIFACTS_SCHEMA','not-set')}}" # optional, default is your target schema
+    staging:
+      +database: "{{ env_var('ARTIFACTS_DATABASE','not-set')}}" # optional, default is your target database
+      +schema: "{{ env_var('ARTIFACTS_SCHEMA','not-set')}}" # optional, default is your target schema
+    sources:
+      +database: "{{ env_var('ARTIFACTS_DATABASE','not-set')}}" # optional, default is your target database
+      +schema: "{{ env_var('ARTIFACTS_SCHEMA','not-set')}}" # optional, default is your target schema
+  
+  
 
-
-  cp_dbt_standard_package:
-     +schema: "{{ env_var('ARTIFACTS_SCHEMA', 'not-set')}}"
-     +database: "{{ env_var('ARTIFACTS_DATABASE', 'not-set')}}"
+  # cp_dbt_standard_package:
+  #    +schema: "{{ env_var('ARTIFACTS_SCHEMA', 'not-set')}}"
+  #    +database: "{{ env_var('ARTIFACTS_DATABASE', 'not-set')}}"
 
 #hook
-# on-run-end:
-#   - "{{ dbt_artifacts.upload_results(results) }}"
+on-run-end:
+  - "{{ dbt_artifacts.upload_results(results) }}"
