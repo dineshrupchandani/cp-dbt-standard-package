@@ -35,5 +35,5 @@ models:
      +database: "{{ env_var('ARTIFACTS_DATABASE', 'not-set')}}"
 
 #hook
-on-run-end:
-  - "{{ dbt_artifacts.upload_results(results) }}"
+# on-run-end:
+#   - "{{ dbt_artifacts.upload_results(results) }}"
