@@ -1,5 +1,4 @@
-{{ config(materialized='view', tags=["pr_metrics"])}}
-
+{{ config(enabled= {{ env_var('PR_VIEW_ENABLED', false) }}, materialized='view', tags=["pr_metrics"])}}
 
 
 select
