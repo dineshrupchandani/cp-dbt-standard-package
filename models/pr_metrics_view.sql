@@ -1,6 +1,7 @@
 {{ config(materialized='view', tags=["pr_metrics"])}}
 
 
+
 select
     REPLACE(github_context:job, '"', '') as job_name,
     REPLACE(github_context:actor, '"', '') as triggered_by,
