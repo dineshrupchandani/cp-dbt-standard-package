@@ -14,6 +14,10 @@ profile: 'default'
 # found in the "models/" directory. You probably won't need to change these!
 model-paths: ["models"]
 macro-paths: ["macros"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+snapshot-paths: ["snapshots"]
 
 target-path: "target"  # directory which will store compiled SQL files
 clean-targets:         # directories to be removed by `dbt clean`
