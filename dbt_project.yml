@@ -27,6 +27,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   +transient: false
 
+  cp_dbt_standard_package:
+    +database: "DEV_DBT_TESTING_RAW"
+    +schema: "UTIL_COMMON"
+
 
 #hook
 on-run-end:
