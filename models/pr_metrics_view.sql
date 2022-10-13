@@ -1,4 +1,4 @@
-{{ config(materialized='view', tags=["pr_metrics"])}}
+{{ config(materialized='view')}}
 
 
 select
