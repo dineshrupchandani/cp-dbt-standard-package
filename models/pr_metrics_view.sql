@@ -1,5 +1,4 @@
-{{ config(materialized='view', database='DEV_DBT_TESTING_RAW',
-    schema='UTIL_COMMON',tags=["pr_metrics"])}}
+{{ config(materialized='view', tags=["pr_metrics"])}}
 
 
 select
