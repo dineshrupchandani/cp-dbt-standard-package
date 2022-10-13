@@ -1,5 +1,5 @@
-{{ config(materialized='view', database="{{ env_var('ARTIFACTS_DATABASE')}}",
-    schema="{{ env_var('ARTIFACTS_SCHEMA')}}",tags=["pr_metrics"])}}
+{{ config(materialized='view', database='DEV_DBT_TESTING_RAW',
+    schema='UTIL_COMMON',tags=["pr_metrics"])}}
 
 
 select
