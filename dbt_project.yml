@@ -28,9 +28,10 @@ models:
   +transient: false
 
   cp_dbt_standard_package:
-    +database: "{{ env_var('ARTIFACTS_DATABASE')}}"
-    +schema: "{{ env_var('ARTIFACTS_SCHEMA')}}"
+    +enabled: "{{ env_var('ARTIFACTS_DATABASE', 'not-set') != 'not-set'}}"
+    +database: "{{ env_var('ARTIFACTS_DATABASE','not-set')}}"
+    +schema: "{{ env_var('ARTIFACTS_SCHEMA','not-set')}}"
 
 #hook
 on-run-end:
-  - "{{ dbt_artifacts.upload_results(results) }}"
+  - "{{ dbt_artifacts.upload_results(results) }}" if (env_var('ARTIFACTS_DATABASE', 'not-set') != 'not-set' )}}"
