@@ -34,4 +34,4 @@ models:
 
 #hook
 on-run-end:
-  - "{{ dbt_artifacts.upload_results(results) }} if (env_var('ARTIFACTS_DATABASE', 'not-set') != 'not-set' )}}"
+  - "{{ dbt_artifacts.upload_results(results) if (env_var('ARTIFACTS_DATABASE', 'not-set') != 'not-set' )}}"
