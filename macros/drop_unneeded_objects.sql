@@ -26,7 +26,7 @@
           concat_ws('.', table_catalog, table_schema, table_name) as relation_name
         from 
           {{ target.database }}.information_schema.tables
-        where table_schema not in ('UTIL_COMMON','UTIL_SECURITY','INFORMATION_SCHEMA')
+        where table_schema ilike '{{ target.schema }}%'
           and table_name not in
             ({%- for model in current_models -%}
                 '{{ model.upper() }}'
@@ -55,7 +55,7 @@
           concat_ws('.', table_catalog, table_schema, table_name) as relation_name
         from 
           {{ target.database }}.information_schema.tables
-        where table_schema not in ('UTIL_COMMON','UTIL_SECURITY','INFORMATION_SCHEMA')),
+        where table_schema ilike '{{ target.schema }}%' ),
 
 
       tab_vw_to_drop_final as (
