@@ -55,7 +55,7 @@
           concat_ws('.', table_catalog, table_schema, table_name) as relation_name
         from 
           {{ target.database }}.information_schema.tables
-        where table_schema ilike not in ('UTIL_COMMON','UTIL_SECURITY','INFORMATION_SCHEMA') ),
+        where table_schema not in ('UTIL_COMMON','UTIL_SECURITY','INFORMATION_SCHEMA') ),
 
 
       tab_vw_to_drop_final as (
