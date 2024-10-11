@@ -1,3 +1,5 @@
 packages:
   - package: brooklyn-data/dbt_artifacts
     version: 2.6.2
+  - package: iceberg_table
+    version: 1.0.0
