@@ -1,4 +1,3 @@
-{# Custom macros used for populating columns in support of schema evolution #}
 {% macro iceberg_update_columns(source, target, temp_view_name) %}
     {% set model_columns = [] %}
     {#  set model_columns = adapter.get_columns_in_relation(this)  #}
