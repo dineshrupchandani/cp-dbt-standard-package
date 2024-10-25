@@ -84,6 +84,9 @@
             CATALOG = {{ catalog }}
             EXTERNAL_VOLUME = {{ external_volume }}
             BASE_LOCATION = "{{ this.schema }}/{{model.name}}"
+            {% if clustering_key != '' and not temporary -%}
+            CLUSTER BY ({{clustering_key}})
+            {%- endif -%}
             AS {{ sql }}
         {# % endset % #}
         {% endcall %}
